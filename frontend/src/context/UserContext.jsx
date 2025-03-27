@@ -70,7 +70,12 @@ export const UserProvider = ({ children }) => {
 
   async function fetchUser() {
     try {
-      const { data } = await axios.get(`${BACKEND_URL}/api/user/me`, { withCredentials: true });
+      const { data } = await axios.get(`${BACKEND_URL}/api/user/me`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,  // Ensure token is passed
+        },
+        withCredentials: true,
+      });
   
       console.log("Fetched user data:", data); 
   
