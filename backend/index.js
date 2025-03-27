@@ -46,16 +46,16 @@ import pinRoutes from "./routes/pin.routes.js";
 app.use("/api/user", userRoutes);
 app.use("/api/pin", pinRoutes);
 
-console.log(__dirname)
 
 // Serve static frontend files
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
 });
 
 app.listen(port, () => {
+  // console.log(__dirname)
   console.log(`🌼 Server is running on http://localhost:${port}`);
   connectDb();
 });
