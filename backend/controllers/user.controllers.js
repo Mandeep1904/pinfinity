@@ -164,7 +164,6 @@ const followAndUnfollowUser = TryCatch(async (req, res) => {
 const logOutUser = TryCatch(async (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
   });
 
