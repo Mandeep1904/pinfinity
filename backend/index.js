@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cloudinary from "cloudinary";
 import path from "path";
 import cors from "cors";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
@@ -44,6 +45,8 @@ import pinRoutes from "./routes/pin.routes.js";
 // using routes
 app.use("/api/user", userRoutes);
 app.use("/api/pin", pinRoutes);
+
+console.log(__dirname)
 
 // Serve static frontend files
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
